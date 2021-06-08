@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::get('/', 'App\Http\Controllers\PagesController@index')->name('index');
+
+Route::get('/login', 'App\Http\Controllers\LoginController@store')->name('login');
+Route::get('/logout', 'App\Http\Controllers\LoginController@destroy')->name('logout');
+
+Route::get('/register', 'App\Http\Controllers\PagesController@register');
+Route::post('/register', 'App\Http\Controllers\RegisterController@store')->name('register');
