@@ -18,13 +18,13 @@
                     <img src="data:image/png;base64,{{ chunk_split(base64_encode($item->photo)) }}" class="card-img-top img-responsive" alt="...">
                 </div>
                 <div class="card-body">
-                    <p class="card-text" alt="...">{{ $item->description }} </p>
+                    <p class="card-text text-truncate" alt="...">{{ $item->description }} </p>
                 </div>
                 <div class="card-footer">
 
                     <p class="card-text">Rp. {{$item->price}}</p>
                 </div>
-                <a href="/items/{{$item->id}}" class="stretched-link"></a>
+                <a href="/item/{{$item->id}}" class="stretched-link"></a>
             </div>
         </div>
            

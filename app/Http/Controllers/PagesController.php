@@ -29,4 +29,16 @@ class PagesController extends Controller
         if (Auth::check()) return redirect('/');
         return view('register');
     }
+
+    public function profile()
+    {
+        if (Auth::check()) return view('/profile/profile');;
+        return redirect("/");
+    }
+
+    public function topup()
+    {
+        if (Auth::check()) return view('/profile/topup');;
+        return redirect("/");
+    }
 }
