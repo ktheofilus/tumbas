@@ -54,7 +54,7 @@
                     <h5 class="card-title">Beli</h5>
                     <div class="row">
                         <div class="col">
-                            <a href="#" class="btn btn-primary flex">Beli</a>
+                            <a href="/buy/{{$item->id}}" class="btn btn-primary flex">Beli</a>
                         </div>
 
                         <div class="row">                            

@@ -60,4 +60,29 @@ class PagesController extends Controller
         if (Auth::check()) return view('/profile/cart', ['items' => $array]);;
         return redirect("/");
     }
+
+    public function complete()
+    {
+        //
+
+        $transactions = DB::table('transactions')
+            ->select('id')
+            ->where('user_id', Auth::user()->id)
+            ->orderBy('id', 'desc')
+            ->get();
+
+        // dd($transactions);
+        $array = [];
+
+        foreach ($transactions as $transaction) {
+            $items = DB::table('transactions')
+                // ->select('transaction_id', 'item_id', 'itemname', 'price', 'photo')
+                ->join('orderlists', 'transactions.id', '=', 'orderlists.transaction_id')
+                ->join('items', 'items.id', '=', 'orderlists.item_id')
+                ->where('transaction_id', $transaction->id)
+                ->get();
+            array_push($array, $items);
+        }
+        return view('/profile/transaction', ['transactions' => $array]);
+    }
 }
