@@ -86,7 +86,7 @@ class TopupController extends Controller
             ->where('id', Auth::user()->id)
             ->update(['balance' => $money->balance + $request->nominal]);
 
-        return redirect("/topup");
+        return redirect("/topup")->withErrors(["Topup Berhasil!"]);
     }
 
     /**

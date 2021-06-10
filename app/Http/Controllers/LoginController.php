@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -25,6 +26,7 @@ class LoginController extends Controller
 
 
         if (Auth::attempt($credentials)) {
+            session()->put('cart', []);
             return redirect('/');
         } else {
             return redirect('/')->withErrors(['msg', 'Wrong Email or Password']);;

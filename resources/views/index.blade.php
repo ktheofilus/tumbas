@@ -25,6 +25,7 @@
                     <p class="card-text">Rp. {{$item->price}}</p>
                 </div>
                 <a href="/item/{{$item->id}}" class="stretched-link"></a>
+                
             </div>
         </div>
            

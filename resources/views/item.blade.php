@@ -59,7 +59,7 @@
 
                         <div class="row">                            
                             <div class="col">
-                                <a href="#" class="btn btn-success">Keranjang</a>
+                                <a href="/addtocart/{{$item->id}}" class="btn btn-success">Keranjang</a>
                             </div>
                         </div>
 

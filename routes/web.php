@@ -34,3 +34,7 @@ Route::get('/profile', 'App\Http\Controllers\PagesController@profile');
 
 Route::get('/topup', 'App\Http\Controllers\PagesController@topup');
 Route::post('/topup', 'App\Http\Controllers\TopupController@update');
+
+Route::get('/cart', 'App\Http\Controllers\PagesController@cart');
+
+Route::get('/addtocart/{id}', 'App\Http\Controllers\CartController@add');

@@ -18,10 +18,11 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text">Rp. </span>
                     <input name="nominal" type="text" class="form-control
-                    @if($errors->get('nominal'))
-                        
+                    @if($errors->get('nominal'))                        
                         is-invalid
-                    @endif 
+                    @elseif($errors->all())                    
+                        is-valid
+                    @endif
                     " placeholder="100.000"  autocomplete="off">
 
                     @if($errors->get('nominal'))
@@ -30,6 +31,10 @@
                             {{implode($errors->get('nominal'))}}
                         </div>
 
+                    @elseif($errors->all())                    
+                        <div class="valid-feedback">
+                            {{$errors->first()}}
+                        </div>
                     @endif
 
                 </div>                 

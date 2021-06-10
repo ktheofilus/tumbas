@@ -63,7 +63,7 @@
                     ?>
                     <div class="col">
                         
-                        <button type="button" class="btn btn-primary"> chart</button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='/cart';"> Cart</button>
                         
                     </div> 
                     
