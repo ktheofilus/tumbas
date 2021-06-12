@@ -3,6 +3,20 @@
 
 @section('profilecontainer')
 
+    <style>
+        .clickable-row{
+    cursor:pointer;
+    }
+    </style>
+
+    <script>
+        $(document).ready(function($) {
+        $(".clickable-row").click(function() {
+            window.document.location = $(this).data("href");
+        });
+    });
+    </script>
+
     <div class="row p-3">
         <p class="h1 fw-bolder border border-3 border-start-0 border-end-0">
             Cart
@@ -21,11 +35,10 @@
         <?php $total += $item->price ?>
             <div class="card my-2" style="height: 100px;">
                 <div class="row my-2" style="height: auto">
-                    <div class="row">
+                    <div class="row  clickable-row" data-href='/item/{{$item->id}}'>
 
                         <div class="col-1">
                             <img src="/images/{{$item->photo}}" class="card-img-top img-responsive" alt="...">
-                            <a href="/item/{{$item->id}}" class="stretched-link"></a>
                         </div>
                         <div class="col">
                             
@@ -34,8 +47,7 @@
                             </div>   
                             <div class="row">
                                 <h5 class="title">{{$item->price}}</h5>
-                            </div>  
-                            <a href="/item/{{$item->id}}" class="stretched-link"></a>
+                            </div>
                         </div>
                         <div class="col-1">
                             <a href="/deletecart/{{$item->id}}" class="btn btn-danger flex">Delete</a>
