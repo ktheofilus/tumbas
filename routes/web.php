@@ -50,3 +50,7 @@ Route::get('/transaction', 'App\Http\Controllers\PagesController@complete');
 
 Route::get('/sell', 'App\Http\Controllers\PagesController@sell');
 Route::post('/sell', 'App\Http\Controllers\ItemController@store');
+
+Route::get('/itemlist', 'App\Http\Controllers\ItemController@index');
+
+Route::post('/deleteitem/{id}', 'App\Http\Controllers\ItemController@destroy');
