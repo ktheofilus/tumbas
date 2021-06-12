@@ -29,12 +29,10 @@
         @endif
 
         <?php $total=0 ?>
-
         @if(empty($items))
 
         @foreach ($items as $item)
-
-        <?php $total += $item->price; ?>
+        <?php $total += $item->price ?>
             <div class="card my-2" style="height: 100px;">
                 <div class="row my-2" style="height: auto">
                     <div class="row  clickable-row" data-href='/item/{{$item->id}}'>
