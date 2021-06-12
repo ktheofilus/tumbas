@@ -18,7 +18,10 @@ class CreateItemsTable extends Migration
             $table->string('itemname');
             $table->integer('price');
             $table->string('description');
-            $table->binary('photo');
+            $table->string('photo');
+            $table->unsignedBigInteger('seller');
+            $table->foreign('seller')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

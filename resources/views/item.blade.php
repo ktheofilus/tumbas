@@ -8,7 +8,7 @@
 
         <div class="row">
             <div class="col-4 pt-4">
-                <img src="data:image/png;base64,{{ chunk_split(base64_encode($item->photo)) }}" class="img-fluid border border-5 rounded" alt="...">
+                <img src="/images/{{$item->photo}}" class="img-fluid border border-5 rounded" alt="...">
             </div>
 
             <div class="col-5 pt-4">

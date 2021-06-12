@@ -15,7 +15,7 @@
             <div class="card" style="width:100%;height:auto;">
                 <h5 class="card-header card-title">{{$item->itemname}}</h5>
                 <div class="card-body">
-                    <img src="data:image/png;base64,{{ chunk_split(base64_encode($item->photo)) }}" class="card-img-top img-responsive" alt="...">
+                    <img src="/images/{{$item->photo}}" class="card-img-top img-responsive" alt="...">
                 </div>
                 <div class="card-body">
                     <p class="card-text text-truncate" alt="...">{{ $item->description }} </p>

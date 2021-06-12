@@ -23,7 +23,7 @@
                             <a href="/topup" class="stretched-link"></a>
                         </li>
                         <li class="list-group-item">Cart<a href="/cart" class="stretched-link"></a></li>
-                        <li class="list-group-item">Sedang Berlangsung<a href="/ongoing" class="stretched-link"></a></li>
+                        <li class="list-group-item">Jual Barang<a href="/sell" class="stretched-link"></a></li>
                         <li class="list-group-item">Transaksi Pembelian<a href="/transaction" class="stretched-link"></a></li>
                         <li class="list-group-item text-white bg-danger "> Logout<a href="/logout" class="stretched-link"></a></li>
                     </ul>

@@ -44,9 +44,15 @@ class PagesController extends Controller
         return redirect("/");
     }
 
+    public function sell()
+    {
+        if (Auth::check()) return view('/profile/sell');;
+        return redirect("/");
+    }
+
     public function cart()
     {
-
+        if (!Auth::check()) return redirect("/");
         // dd($request);
         $array = [];
         foreach (session()->get('cart') as $item) {
@@ -57,6 +63,7 @@ class PagesController extends Controller
             array_push($array, $item);
         }
 
+
         if (Auth::check()) return view('/profile/cart', ['items' => $array]);;
         return redirect("/");
     }
@@ -64,6 +71,8 @@ class PagesController extends Controller
     public function complete()
     {
         //
+        if (!Auth::check()) return redirect("/");
+
 
         $transactions = DB::table('transactions')
             ->select('id')
@@ -83,6 +92,8 @@ class PagesController extends Controller
                 ->get();
             array_push($array, $items);
         }
+
+        // dd($array);
         return view('/profile/transaction', ['transactions' => $array]);
     }
 }

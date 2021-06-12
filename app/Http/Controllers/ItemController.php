@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -37,6 +38,28 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'itemname' => "required",
+            'price' => "required|numeric",
+            'description' => "required",
+            'photo' => "required",
+        ]);
+
+        $file = $request->file('photo');
+
+        $filename = $file->getClientOriginalName();
+
+        $request->file('photo')->move('images', $filename);
+
+        $item = Item::create([
+            "itemname" => $request->itemname,
+            "price" => $request->price,
+            "description" => $request->description,
+            "photo" => $filename,
+            "seller" => Auth::user()->id,
+        ]);
+
+        return redirect('/');
     }
 
     /**

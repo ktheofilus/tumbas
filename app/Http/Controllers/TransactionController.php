@@ -47,6 +47,7 @@ class TransactionController extends Controller
     public function checkout()
     {
         //
+        if (!Auth::check()) return redirect("/");
         $cart = [];
         foreach (session()->get('cart') as $item) {
             $item = DB::table('items')
@@ -78,6 +79,22 @@ class TransactionController extends Controller
                     'transaction_id' => $transactionid->id,
                     'item_id' => $item,
                 ]);
+
+                $itemseller
+                    = DB::table('items')
+                    ->select('id', 'price')
+                    ->where('id', $item)
+                    ->first();
+
+                $sellermoney
+                    = DB::table('users')
+                    ->select('balance')
+                    ->where('id', $itemseller->id)
+                    ->first();
+
+                DB::table('users')
+                    ->where('id', $itemseller->id)
+                    ->update(['balance' => $sellermoney->balance + $itemseller->price]);
             }
 
             $money = DB::table('users')

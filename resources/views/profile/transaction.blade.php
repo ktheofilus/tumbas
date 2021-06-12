@@ -11,8 +11,8 @@
     <div class="row">
         @foreach ($transactions as $transaction)
             <div class="card mb-3" style="height: auto;">
-                
                 <?php $total=0; ?>
+                <div class="card-header text-end">{{$transaction[0]->created_at}}</div>
 
                 <div class="row m-2" style="height: auto">
                     @foreach ($transaction as $item)
@@ -25,7 +25,7 @@
                             <div class="row p-2">
 
                                 <div class="col-2">
-                                    <img src="data:image/png;base64,{{ chunk_split(base64_encode($item->photo)) }}" class="card-img-top img-responsive" alt="...">
+                                    <img src="/images/{{$item->photo}}" class="card-img-top img-responsive" alt="...">
                                 </div>
                             
                                 <div class="col">
@@ -38,9 +38,8 @@
                                     </div>  
                                 </div>
 
-                                {{-- {{$item->itemname}}
-                                {{$item->created_at}}
-                                {{$item->price}} --}}
+                                <a href="/item/{{$item->id}}" class="stretched-link"></a>
+
                             </div>
                         </div>
 

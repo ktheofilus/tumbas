@@ -12,6 +12,7 @@
         *{
     font-family: 'Nunito' ;
     }
+
     </style>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -41,7 +42,7 @@
             
             {{-- search bar --}}
             
-            <div class="col-9">
+            <div class="col-8">
                 
                 <div class="input-group mb-2">
                     <div class="input-group-prepend">
@@ -63,7 +64,7 @@
                     ?>
                     <div class="col">
                         
-                        <button type="button" class="btn btn-primary" onclick="location.href='/cart';"> Cart</button>
+                        <button type="button" class="btn btn-primary flex" style="width: 100%" onclick="location.href='/cart';"> Cart</button>
                         
                     </div> 
                     
@@ -74,7 +75,7 @@
                     ?>
                     <div class="col">
                         
-                        <button class="btn btn-primary" onclick="location.href='/register';"; >Register</button>
+                        <button class="btn btn-primary" style="width: 100%" onclick="location.href='/register';"; >Register</button>
                         
                     </div> 
                     
@@ -98,7 +99,7 @@
                     ?>
                     <div class="col">
 
-                        <button class="btn btn-primary" onclick="location.href='/profile';"; >Profile</button>
+                        <button class="btn btn-primary" style="width: 100%" onclick="location.href='/profile';"; >Profile</button>
                        
                         {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profileform" id="profilebtn"  >Profile</button>
 
@@ -137,7 +138,7 @@
 
     <div class="col">
         
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginform" id="loginbtn"  >login</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal"  style="width: 100%" data-bs-target="#loginform" id="loginbtn"  >login</button>
         
         <form method="get" action="/login">
             
@@ -229,6 +230,9 @@
 -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    
+   
 
     
     @if($errors->all())
