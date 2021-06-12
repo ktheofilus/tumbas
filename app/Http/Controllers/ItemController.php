@@ -17,6 +17,12 @@ class ItemController extends Controller
     public function index()
     {
         //
+        $items = DB::table('items')
+            ->where('seller', Auth::user()->id)
+            ->where('status', 1)
+            ->get();
+
+        return view('/profile/itemlist')->with(['items' => $items]);
     }
 
     /**
@@ -73,7 +79,12 @@ class ItemController extends Controller
         //
         $item = DB::table('items')
             ->where('id', $id)
+            ->where('status', 1)
             ->first();
+
+        if ($item == null) {
+            return redirect('/');
+        }
 
         return view('/item', ['item' => $item]);
     }
@@ -107,8 +118,18 @@ class ItemController extends Controller
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Item $item)
+    public function destroy($id)
     {
         //
+        DB::table('items')
+            ->where('id', $id)
+            ->update(['status' => 0]);
+
+        $items = DB::table('items')
+            ->where('seller', Auth::user()->id)
+            ->where('status', 1)
+            ->get();
+
+        return view('/profile/itemlist')->with(['items' => $items]);
     }
 }

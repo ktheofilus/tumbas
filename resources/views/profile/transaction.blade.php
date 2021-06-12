@@ -34,7 +34,7 @@
                                         <h5 class="title">{{$item->itemname}}</h5>
                                     </div>   
                                     <div class="row">
-                                        <h5 class="title">{{$item->price}}</h5>
+                                        <h5 class="title">Rp. {{$item->price}}</h5>
                                     </div>  
                                 </div>
 

@@ -17,7 +17,10 @@ class PagesController extends Controller
     public function index()
     {
 
-        $item = DB::table('items')->orderBy('id', 'DESC')->get();
+        $item = DB::table('items')
+            ->where('status', 1)
+            ->orderBy('id', 'DESC')
+            ->get();
         // $item = DB::table('items')->paginate(1);
 
         return view('index', ['items' => $item]);

@@ -21,6 +21,7 @@ class CreateItemsTable extends Migration
             $table->string('photo');
             $table->unsignedBigInteger('seller');
             $table->foreign('seller')->references('id')->on('users');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
