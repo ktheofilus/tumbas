@@ -82,18 +82,18 @@ class TransactionController extends Controller
 
                 $itemseller
                     = DB::table('items')
-                    ->select('id', 'price')
+                    ->select('seller', 'price')
                     ->where('id', $item)
                     ->first();
 
                 $sellermoney
                     = DB::table('users')
                     ->select('balance')
-                    ->where('id', $itemseller->id)
+                    ->where('id', $itemseller->seller)
                     ->first();
 
-                DB::table('users')
-                    ->where('id', $itemseller->id)
+                $test = DB::table('users')
+                    ->where('id', $itemseller->seller)
                     ->update(['balance' => $sellermoney->balance + $itemseller->price]);
             }
 
